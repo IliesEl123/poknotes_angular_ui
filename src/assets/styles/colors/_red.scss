@@ -1,0 +1,45 @@
+$md-flexy-red-primary: (
+  100: #ff5c8e,
+  500: #ff5c8e,
+  700: #ff5c8e,
+  contrast: (
+    100: #ffffff,
+    500: #ffffff,
+    700: #ffffff,
+  ),
+);
+$md-flexy-red-secondary: (
+  100: #5e244d,
+  500: #5e244d,
+  700: #5e244d,
+  contrast: (
+    100: #ffffff,
+    500: #ffffff,
+    700: #ffffff,
+  ),
+);
+
+$red-app-primary: mat-palette($md-flexy-red-primary, 500);
+$red-app-accent: mat-palette($md-flexy-red-secondary, 500);
+$red-app-warn: mat-palette($mat-pink);
+
+$primary: mat-color($red-app-primary);
+// Create the theme object (a Sass map containing all of the palettes).
+$red-app-theme: mat-light-theme(
+  $red-app-primary,
+  $red-app-accent,
+  $red-app-warn
+);
+
+$red-app-dark-theme: mat-dark-theme(
+  $red-app-primary,
+  $red-app-accent,
+  $red-app-warn
+);
+
+.leftsidebar .menu-list-item.activeMenu {
+  .mat-list-item-content,
+  &:hover .mat-list-item-content {
+    background-color: $primary;
+  }
+}

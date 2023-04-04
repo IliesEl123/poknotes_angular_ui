@@ -1,0 +1,85 @@
+// dashboard 1
+.activity {
+  border-left: 2px solid #bdbdbd;
+  position: relative;
+
+  .activity-status {
+    position: absolute;
+    left: -1px;
+    top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::before {
+      position: absolute;
+      width: 20px;
+      height: 35px;
+      content: "";
+      background-color: $white;
+    }
+
+    .status {
+      position: absolute;
+      content: "";
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: $white;
+      &.status-success {
+        border: 2px solid $success;
+      }
+      &.status-primary {
+        border: 2px solid $primary;
+      }
+      &.status-info {
+        border: 2px solid $info;
+      }
+      &.status-warning {
+        border: 2px solid $warning;
+      }
+      &.status-danger {
+        border: 2px solid $danger;
+      }
+    }
+  }
+
+  .activity-text {
+    min-height: 60px;
+  }
+}
+
+// mail app
+@media (max-width: 1279px) {
+  .detail-part.movetodetail {
+    display: block;
+    position: absolute;
+    background: $white;
+    z-index: 9;
+  }
+  .welcome-app {
+    display: none;
+  }
+  
+}
+
+.mail-pagination {
+  .ngx-pagination {
+    margin: 2px 0 1px;
+  }
+}
+
+// pricing
+
+.price-listing .mat-list-item .mat-list-item-content {
+  display: block !important;
+}
+
+// notes
+.notes-app {
+  .mat-list-item-content {
+    padding: 0 !important;
+  }
+}
+
+

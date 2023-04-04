@@ -1,0 +1,15 @@
+@use "@angular/material" as mat;
+
+/////////////////////////////////////////////////////
+//Dark theme Colors
+/////////////////////////////////////////////////////
+
+$flexy-dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $primary,
+      accent: $accent,
+      warn: $warn,
+    ),
+  )
+);

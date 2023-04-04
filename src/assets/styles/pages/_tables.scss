@@ -1,0 +1,33 @@
+.table-responsive {
+  .header-label {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .table-responsive {
+    .mat-header-row {
+      display: none;
+    }
+    mat-cell:first-of-type,
+    mat-header-cell:first-of-type,
+    mat-footer-cell:first-of-type {
+      padding-left: 0;
+    }
+    .mat-row {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 8px 15px;
+    }
+    .header-label {
+      width: 80px;
+      display: inline-block;
+      font-weight: 600;
+    }
+  }
+}
+
+.ngx-datatable.material {
+    box-shadow: none;
+    border: 1px solid rgba(0,0,0,0.12);
+  }

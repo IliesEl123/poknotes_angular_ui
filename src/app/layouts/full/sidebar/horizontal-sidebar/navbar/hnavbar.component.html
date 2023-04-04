@@ -1,0 +1,24 @@
+<a
+  *ngIf="!item.navCap"
+  class="align-items-center cursor-pointer menuLink"
+  (click)="onItemSelected(item)"
+  [ngClass]="{
+    activeMenu: item.route ? router.isActive(item.route, true) : false
+  }"
+>
+  <i-feather class="routeIcon m-r-10" name="{{ item.iconName }}"></i-feather>
+  {{ item.displayName }}
+  <span fxFlex></span>
+  <span *ngIf="item.children && item.children.length" class="down-icon">
+    <mat-icon> expand_more </mat-icon>
+  </span>
+</a>
+
+<div *ngIf="item.children" class="childBox">
+  <app-hnavbar
+    *ngFor="let child of item.children"
+    [item]="child"
+    class="ddmenu"
+  >
+  </app-hnavbar>
+</div>

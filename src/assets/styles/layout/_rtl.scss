@@ -1,0 +1,48 @@
+.rtl {
+  .mainboxContainer {
+    .welcome-card {
+      &::before {
+        background-position: right -9px top 24px;
+        transform: scaleX(-1);
+      }
+    }
+
+    .earnings-bg {
+      &::before {
+        transform: scaleX(-1);
+      }
+    }
+
+    .activity {
+      border-left: 0;
+      border-right: 2px solid #bdbdbd;
+      .activity-status {
+        left: unset;
+        right: -1px;
+      }
+    }
+  }
+  .ml-auto {
+    margin-left: unset;
+    margin-right: auto;
+  }
+
+  .border-right {
+    border-right: 0;
+    border-left: 1px solid rgba(0, 0, 0, 0.12);
+  }
+
+  .border-left {
+    border-left: 0;
+    border-right: 1px solid rgba(0, 0, 0, 0.12);
+  }
+
+  .text-right {
+    text-align: left !important;
+  }
+
+  .note-color {    
+    right: 0;
+    left: unset;
+  }
+}

@@ -1,0 +1,165 @@
+<app-logo class="d-lg-block"></app-logo>
+
+<!-- ============================================================== -->
+<!-- Sidebar Toggle button - -->
+<!-- ============================================================== -->
+<button
+  type="button"
+  mat-button
+  class="d-md-block d-none"
+  mat-icon-button
+  (click)="sidebartoggle.toggle()"
+>
+  <i-feather class="feather-20 text-light" name="menu"></i-feather>
+</button>
+<!-- ============================================================== -->
+<!-- Search Toggle button - -->
+<!-- ============================================================== -->
+<button
+  mat-icon-button
+  mat-button
+  class="srh-btn"
+  (click)="showSearch = !showSearch"
+>
+  <i-feather class="feather-20 text-light" name="search"></i-feather>
+</button>
+
+<div *ngIf="showSearch" class="topsearch hstack gap-3 align-items-center">
+  <mat-form-field class="w-100" color="accent" appearance="fill">
+    <input matInput placeholder="Search" class="mat-textsmall" />
+  </mat-form-field>
+  <mat-icon (click)="showSearch = !showSearch" class="cursor-pointer">
+    close
+  </mat-icon>
+</div>
+<span fxFlex></span>
+
+<!-- ============================================================== -->
+<!-- Messages - style you can find in header.scss -->
+<!-- ============================================================== -->
+<!-- <button
+  [matMenuTriggerFor]="message"
+  mat-button
+  mat-icon-button
+  class="m-r-5 position-relative"
+>
+  <i-feather class="feather-20 text-light" name="message-square"></i-feather>
+  <div class="notify">
+    <span class="point bg-accent"></span>
+  </div>
+</button>
+<mat-menu #message="matMenu" class="topbardd" xPosition="before">
+  <mat-action-list class="m-b-10">
+    <h4 class="ddheadtitle m-0 m-b-5 m-r-10 hstack align-items-center">
+      Messages
+      <div class="m-l-10">
+        <mat-chip-list
+          ><mat-chip color="primary" selected>5 new</mat-chip></mat-chip-list
+        >
+      </div>
+    </h4>
+    <mat-list-item *ngFor="let message of messages; last as last">
+      <div mat-list-icon class="mat-list-item-img">
+        <img src="{{ message.img }}" alt="users" class="w-100" />
+      </div>
+
+      <h6 mat-line class="ddtitle">{{ message.title }}</h6>
+
+      <div mat-line class="text-muted">{{ message.subject }}</div>
+      <div mat-line class="text-muted">{{ message.time }}</div>
+      <mat-divider *ngIf="!last"></mat-divider>
+    </mat-list-item>
+  </mat-action-list>
+  <button mat-flat-button color="accent" class="w-100">See all messages</button>
+</mat-menu> -->
+
+<!-- ============================================================== -->
+<!-- Notification - style you can find in header.scss -->
+<!-- ============================================================== -->
+<!-- <button
+  [matMenuTriggerFor]="notification"
+  mat-button
+  mat-icon-button
+  class="m-r-5 position-relative"
+>
+  <i-feather class="feather-20 text-light" name="bell"></i-feather>
+  <div class="notify">
+    <span class="point bg-primary"></span>
+  </div>
+</button>
+<mat-menu #notification="matMenu" class="topbardd" xPosition="before">
+  <mat-action-list class="m-b-10">
+    <h4 class="ddheadtitle m-0 m-b-15 m-r-10 hstack align-items-center">
+      Notifications
+      <div class="m-l-10">
+        <mat-chip-list>
+          <mat-chip color="accent" selected>5 new</mat-chip></mat-chip-list
+        >
+      </div>
+    </h4>
+    <mat-list-item
+      *ngFor="let notification of notifications; last as last"
+      class=""
+    >
+      <div class="text-white {{ notification.bg }}" mat-list-icon>
+        <mat-icon>
+          {{ notification.icon }}
+        </mat-icon>
+      </div>
+
+      <h6 mat-line class="ddtitle">{{ notification.title }}</h6>
+      <span matLine></span>
+      <div mat-line class="text-muted">{{ notification.subject }}</div>
+      <mat-divider *ngIf="!last"></mat-divider>
+    </mat-list-item>
+  </mat-action-list>
+  <button mat-flat-button color="accent" class="w-100">
+    See all notifications
+  </button>
+</mat-menu> -->
+
+<!-- ============================================================== -->
+<!-- User Profile - style you can find in header.scss -->
+<!-- ============================================================== -->
+<button mat-icon-button [matMenuTriggerFor]="profile" class="text-light m-l-10">
+  <img
+    src="assets/images/users/user2.jpg"
+    width="35"
+    class="rounded-circle m-r-5"
+    alt=""
+  />
+</button>
+<mat-menu #profile="matMenu" class="topbardd" xPosition="before">
+  <mat-action-list class="m-b-10">
+    <h4 class="ddheadtitle m-0 m-b-5">User Profile</h4>
+    <div class="hstack align-items-center gap-3 p-t-15 p-b-15">
+      <img
+        src="assets/images/users/user2.jpg"
+        width="80"
+        class="rounded-circle"
+        alt=""
+      />
+      <div>
+        <h4 class="m-0">Julia Roberts</h4>
+        <h5 class="text-muted m-0 fw-normal">Administrator</h5>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div *ngFor="let profile of profiles; last as last">
+      <mat-list-item>
+        <mat-divider *ngIf="!last"></mat-divider>
+        <div class="mat-list-item-img bg-light-{{ profile.bg }}" mat-list-icon>
+          <i-feather
+            name="{{ profile.icon }}"
+            class="text-{{ profile.bg }}"
+          ></i-feather>
+        </div>
+
+        <h6 mat-line class="ddtitle">{{ profile.title }}</h6>
+        <span mat-line></span>
+        <div mat-line class="text-muted">{{ profile.subject }}</div>
+      </mat-list-item>
+    </div>
+  </mat-action-list>
+  <button mat-flat-button color="accent" class="w-100">Logout</button>
+</mat-menu>

@@ -1,0 +1,174 @@
+.horizontal {
+  &.main-container {
+    .page-content {
+      padding: 30px 15px;
+    }
+  }
+  .horizontal-container {
+    max-width: 1270px;
+    margin: 0 auto;
+    // padding: 0;
+  }
+  .hori-navbar {
+    margin: 0px 0 30px 0;
+    background: white;
+    box-shadow: $box-shadow;
+    border-radius: 8px;
+    position: relative;
+    .parentBox {
+      position: relative;
+      z-index: 5;
+      margin: 5px 0;
+      &.mega-menu {
+        position: static;
+        &:hover {
+          > .childBox > .ddmenu {
+            display: inline-block;
+          }
+        }
+        > .childBox {
+          width: 100%;
+          left: 0;
+
+          > .ddmenu {
+            width: 24%;
+          }
+        }
+      }
+      &.two-column {
+        &:hover {
+          > .childBox > .ddmenu {
+            display: inline-block;
+          }
+        }
+        > .childBox {
+          width: 600px;
+
+          > .ddmenu {
+            width: 49%;
+          }
+        }
+      }
+      .menuLink {
+        padding: 10px;
+        border-radius: 6px;
+      }
+      &:hover > .menuLink {
+        background-color: rgba(0, 0, 0, 0.025);
+      }
+      &:hover > .activeMenu,
+      .activeMenu {
+        color: $white;
+        background-color: $accent;
+      }
+      .down-icon {
+        line-height: 0;
+      }
+      .childBox {
+        border-radius: 8px;
+        box-shadow: $box-shadow;
+        position: absolute;
+        width: 300px;
+        .ddmenu {
+          display: none;
+          padding: 10px;
+          position: relative;
+        }
+      }
+
+      &:hover > .childBox > .ddmenu:hover {
+        background-color: rgba(0, 0, 0, 0.025);
+        &:hover > .childBox > .ddmenu:hover {
+          background-color: rgba(0, 0, 0, 0.025);
+        }
+      }
+      &:hover > .childBox > .ddmenu:hover > .childBox {
+        left: 300px;
+        top: 0px;
+        z-index: 9;
+        > .ddmenu:hover > .childBox {
+          left: 300px;
+          top: 0;
+        }
+      }
+
+      &:hover > .childBox > .ddmenu {
+        display: block;
+        &:hover > .childBox > .ddmenu {
+          display: block;
+          
+          &:hover > .childBox > .ddmenu {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+.lightTheme {
+  .horizontal {
+    .topbar {
+      background: #fff;
+      box-shadow: $box-shadow;
+    }
+    .hori-navbar,
+    .childBox {
+      background: #fff;
+    }
+  }
+}
+.darkTheme {
+  .horizontal {
+    .topbar {
+      background: #202020;
+    }
+    .hori-navbar,
+    .childBox {
+      background: #424242;
+    }
+  }
+}
+@media (min-width: 1100px) {
+  .horizontal .leftsidebar {
+    display: none;
+  }
+}
+
+.ltr {
+  .horizontal {
+    .hori-navbar {
+      .parentBox {
+        &:last-child:hover > .childBox > .ddmenu {
+          &:hover > .childBox {
+            right: 300px;
+            left: unset;
+            > .ddmenu:hover > .childBox {
+              right: 300px;
+              left: unset;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.rtl {
+  .horizontal {
+    .hori-navbar {
+      .parentBox {
+        &:last-child:hover > .childBox > .ddmenu {
+          &:hover > .childBox {
+            left: 300px;
+            right: unset;
+            > .ddmenu:hover > .childBox {
+              left: 300px;
+              right: unset;
+            }
+          }
+        }
+      }
+    }
+  }
+}

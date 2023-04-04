@@ -1,0 +1,12 @@
+<div class="hsidebar horizontal-container">
+  <div *ngIf="mobileQuery.matches">
+    <div class="hori-navbar hstack gap-1 align-items-center">
+      <app-hnavbar
+        *ngFor="let item of navItems"
+        [item]="item"
+        class="parentBox {{item.ddType}}"
+      >
+      </app-hnavbar>
+    </div>
+  </div>
+</div>

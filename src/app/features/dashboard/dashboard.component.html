@@ -1,0 +1,124 @@
+<div fxLayout="row wrap">
+  <div fxFlex="100">
+    <mat-card>
+      <mat-card-content>
+        <!-- Barre de recherche -->
+        <div fxLayout="row wrap" class="align-items-center">
+          <div fxFlex="30">
+            <mat-form-field>
+              <!-- Champ de texte pour la recherche d'un joueur -->
+              <input
+                matInput
+                class="p-b-0"
+                placeholder="Rechercher un joueur..."
+                [(ngModel)]="searchText"
+                id="search-text"
+                aria-describedby="search-text"
+                (input)="searchPlayer()"
+                [matAutocomplete]="auto"
+              />
+              <!-- Menu déroulant des suggestions de joueurs -->
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option
+                  *ngFor="let player of filteredPlayers$ | async"
+                  [value]="player.pseudo"
+                  (onSelectionChange)="addPlayerToListSearch(player.pseudo)"
+                >
+                  {{ player.pseudo }}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+          </div>
+          <!-- Boutons pour afficher tous les joueurs, vider la sélection et ajouter un joueur -->
+          <div fxFlex="10"></div>
+          <div fxFlex="20">
+            <button mat-flat-button (click)="allPlayers()" color="primary">
+              Tous les joueurs
+            </button>
+          </div>
+          <div fxFlex="20">
+            <button
+              mat-flat-button
+              (click)="emptyPlayersList()"
+              color="primary"
+            >
+              Vider la sélection
+            </button>
+          </div>
+          <div fxFlex="20">
+            <button
+              mat-flat-button
+              (click)="openDialog('Add', {})"
+              color="primary"
+            >
+              Ajouter un joueur
+            </button>
+            <!-- Afficher le message si le joueur existe déjà -->
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<!-- Création d'un conteneur pour chaque joueur -->
+<div fxLayout="row wrap">
+  <div
+    fxFlex.gt-md="33.33"
+    fxFlex.gt-xs="100"
+    fxFlex="100"
+    *ngFor="let player of players$ | async "
+  >
+    <mat-card>
+      <mat-card-content class="text-center">
+        <!-- Affichage du nom du joueur et bouton pour supprimer -->
+        <div class="d-flex w-100" style="justify-content: space-between;">
+          <h1 class="card-title m-t-15 m-b-0">{{ player.pseudo }}</h1>
+          <button mat-button (click)="removePlayer(player.pseudo)">
+            <mat-icon
+              class="mat-icon notranslate material-icons mat-icon-no-color"
+              aria-hidden="true"
+              data-mat-icon-type="font"
+              >cancel</mat-icon
+            >
+          </button>
+        </div>
+     <!-- Affichage des notes pour chaque joueur -->
+     <mat-form-field class="example-form-field " *ngFor="let note of player.notes">
+       <input matInput type="text" [(ngModel)]="note.content"   (blur)="updateNote(player, note)"/>
+       
+       <button
+         mat-button
+         matSuffix
+         mat-icon-button
+         (click)="deleteNoteFromPlayer(player, note.id)"
+       >
+         <mat-icon style="color: #FB9778">delete</mat-icon>
+       </button>
+     </mat-form-field>
+
+     <!-- Formulaire pour ajouter une note pour chaque joueur -->
+     <mat-form-field class="example-form-field m-t-10">
+       <input matInput type="text" placeholder="Ajouter une note" [(ngModel)]="player.noteText" />
+       <button
+         mat-button
+         matSuffix
+         mat-icon-button
+         aria-label="Clear"
+         [disabled]="!player.noteText"
+         (click)="addNoteToPlayer(player)"
+       >
+         <mat-icon>add</mat-icon>
+       </button>
+     </mat-form-field>
+    
+     <!-- Bouton pour supprimer un joueur -->
+     <button mat-flat-button (click)="suppressPlayer(player.pseudo)" style="color: #303030; padding-top: 2%;">
+      Supprimer ce joueur
+    </button>
+     </mat-card-content>
+   </mat-card>
+
+   
+ </div>
+</div>

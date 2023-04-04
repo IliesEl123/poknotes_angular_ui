@@ -1,0 +1,50 @@
+.horizontal {
+  .page-wrapper {
+    margin-left: 0 !important;
+  }
+}
+.leftsidebar {
+  width: $sidebarwidth;
+  box-shadow: $box-shadow;
+  border: 0px;
+}
+
+.vsidebar,
+.hsidebar {
+  padding: 0 15px;
+
+  .routeIcon {
+    width: $sidebarIconSize;
+    height: $sidebarIconSize;
+    margin-right: 10px;
+  }
+  .menu-list-item {
+    margin: 0 0 5px 0;
+
+    .mat-list-item-content {
+      border-radius: 6px;
+      padding: 0 6px 0 10px;
+    }
+    &:hover {
+      background-color: transparent;
+      .mat-list-item-content {
+        background-color: rgba(0, 0, 0, 0.05);
+      }
+    }
+  }
+}
+
+.minisidebar {
+  .leftsidebar {
+    width: $minisidebar;
+  }
+}
+
+.vsidebar .menu-list-item.activeMenu,
+.hsidebar .menu-list-item.activeMenu {
+  .mat-list-item-content,
+  &:hover .mat-list-item-content {
+    color: $white;
+    background-color: #FB9778 ;
+  }
+}

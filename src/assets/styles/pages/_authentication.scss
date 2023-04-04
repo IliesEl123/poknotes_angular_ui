@@ -1,0 +1,84 @@
+.login-register {
+  height: 100vh;
+  display: flex;
+  background-size: cover;
+  align-items: center;
+
+  .login-register-box {
+    max-width: 400px;
+    min-width: 280px;
+    margin: 0 auto;
+    vertical-align: middle;
+  }
+}
+
+.error-card {
+  h1 {
+    font-size: 210px;
+    font-weight: 800;
+    line-height: 210px;
+    margin: 0px;
+    text-shadow: 4px 5px 1px #b3bbbf;
+  }
+}
+
+@media (max-width: 767px) {
+  .error-card {
+    h1 {
+      font-size: 120px;
+      line-height: 120px;
+    }
+  }
+}
+
+// authentication other pages
+@media (min-width: 1200px) {
+  .left-bg-img {
+    position: absolute;
+    height: 100vh;
+    right: -50px;
+  }
+}
+
+.left-bg-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px auto;
+}
+
+.auth-wrapper {
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  height: 100vh;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+
+.right-bg-content {
+  box-sizing: border-box;
+  flex-flow: row wrap;
+  width: 100%;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+
+.divider-text {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 110px;
+  top: -11px;
+  background: #fafafa;
+  display: block;
+  text-align: center;
+}
+
+.auth-brand {
+  position: absolute;
+  top: 0;
+}

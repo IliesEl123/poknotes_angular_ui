@@ -1,0 +1,31 @@
+<!-- Si l'utilisateur est connecté, affiche le profil. Sinon, affiche "Please login." -->
+<div class="container" *ngIf="currentUser; else loggedOut">
+  <!-- En-tête de la page -->
+  <header class="jumbotron">
+    <h3>
+      <strong>{{ currentUser.username }}</strong> Profile
+    </h3>
+  </header>
+  <!-- Affiche le token de l'utilisateur -->
+  <p>
+    <strong>Token:</strong>
+    {{ currentUser.accessToken.substring(0, 20) }} ...
+    {{ currentUser.accessToken.substr(currentUser.accessToken.length - 20) }}
+  </p>
+  <!-- Affiche l'email de l'utilisateur -->
+  <p>
+    <strong>Email:</strong>
+    {{ currentUser.email }}
+  </p>
+  <!-- Affiche les rôles de l'utilisateur sous forme de liste -->
+  <strong>Roles:</strong>
+  <ul>
+    <li *ngFor="let role of currentUser.roles">
+      {{ role }}
+    </li>
+  </ul>
+</div>
+<!-- Template affiché lorsque l'utilisateur n'est pas connecté -->
+<ng-template #loggedOut>
+  Please login.
+</ng-template>

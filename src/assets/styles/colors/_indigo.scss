@@ -1,0 +1,45 @@
+$md-flexy-indigo-primary: (
+  100: #1e4db7,
+  500: #1e4db7,
+  700: #1e4db7,
+  contrast: (
+    100: #ffffff,
+    500: #ffffff,
+    700: #ffffff,
+  ),
+);
+$md-flexy-indigo-secondary: (
+  100: #11397b,
+  500: #11397b,
+  700: #11397b,
+  contrast: (
+    100: #ffffff,
+    500: #ffffff,
+    700: #ffffff,
+  ),
+);
+
+$indigo-app-primary: mat-palette($md-flexy-indigo-primary, 500);
+$indigo-app-accent: mat-palette($md-flexy-indigo-secondary, 500);
+$indigo-app-warn: mat-palette($mat-pink);
+
+$primary: mat-color($indigo-app-primary);
+// Create the theme object (a Sass map containing all of the palettes).
+$indigo-app-theme: mat-light-theme(
+  $indigo-app-primary,
+  $indigo-app-accent,
+  $indigo-app-warn
+);
+
+$indigo-app-dark-theme: mat-dark-theme(
+  $indigo-app-primary,
+  $indigo-app-accent,
+  $indigo-app-warn
+);
+
+.leftsidebar .menu-list-item.activeMenu {
+  .mat-list-item-content,
+  &:hover .mat-list-item-content {
+    background-color: $primary;
+  }
+}

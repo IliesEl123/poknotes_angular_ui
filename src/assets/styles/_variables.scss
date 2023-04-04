@@ -1,0 +1,111 @@
+@use "@angular/material" as mat;
+@import "~@angular/material/theming";
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap");
+/////////////////////////////////////////////////////
+//Theme Fonts
+/////////////////////////////////////////////////////
+$bodyfont: "DM Sans", sans-serif;
+$headingfont: "DM Sans", sans-serif;
+$md-flexy-primary: (
+  100: #f3c9bd,
+  500: #fb9778,
+  700: #dd7454,
+  contrast: (
+    100: #644d4d,
+    500: #ffffff,
+    700: #ffffff,
+  ),
+);
+$md-flexy-secondary: (
+  100: #03c9d7,
+  500: #03c9d7,
+  700: #03c9d7,
+  contrast: (
+    100: #ffffff,
+    500: #ffffff,
+    700: #ffffff,
+  ),
+);
+/////////////////////////////////////////////////////
+//Theme Colors
+/////////////////////////////////////////////////////
+//$primary: mat.define-palette(mat.$indigo-palette, 500);
+$primary: mat.define-palette($md-flexy-primary, 500);
+$accent: mat.define-palette($md-flexy-secondary, 500);
+$warn: mat.define-palette(mat.$red-palette, 700);
+
+$theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $primary,
+      accent: $accent,
+      warn: $warn,
+    ),
+  )
+);
+
+@include mat.all-component-themes($theme);
+
+/////////////////////////////////////////////////////
+//Dark theme Colors
+/////////////////////////////////////////////////////
+
+$flexy-dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $primary,
+      accent: $accent,
+      warn: $warn,
+    ),
+  )
+);
+
+.darkTheme {
+  @include mat.all-component-colors($flexy-dark-theme);
+}
+
+$custom-typography: mat-typography-config(
+  $font-family: '"DM Sans", sans-serif;',
+  $headline: mat.define-typography-level(36px, 36px, 500),
+  $title: mat.define-typography-level(24px, 36px, 500),
+  $subheading-2: mat.define-typography-level(16px, 16px, 500),
+  $subheading-1: mat.define-typography-level(15px, 15px, 500),
+);
+@include mat.core($custom-typography);
+
+/////////////////////////////////////////////////////
+//Custom Variables
+/////////////////////////////////////////////////////
+$primary: #fb9778;
+$accent: mat-color($accent);
+$war: #fec90f;
+$success: #00c292;
+$warning: #fec90f;
+$danger: #fc4b6c;
+$info: #1856e6;
+$indigo: #132e6e;
+$purple: #6018e6;
+$white: #ffffff;
+$muted: #777e89;
+$light: #949db2;
+
+/*Light colors*/
+$light-danger: #f9e7eb;
+$light-accent: #e5fafb;
+$light-success: #ebfaf2;
+$light-warning: #fff8ec;
+$light-primary: #f1effd;
+$light-info: #e3f3fd;
+$light-inverse: #f6f6f6;
+$light-megna: #e0f2f4;
+
+$sidebarwidth: 265px;
+$sidebarIconSize: 18px;
+$customizerwidth: 260px;
+$minisidebar: 80px;
+$box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
+$bodylightbg: #fafbfb;
+$bodydarkbg: #303030;
+$card-radius: 20px;
+$card-shadow: $box-shadow;
+$borderColor: rgba(0, 0, 0, 0.1);

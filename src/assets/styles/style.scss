@@ -1,0 +1,60 @@
+@import "variables";
+@import "./mixin/spacing";
+@import "./mixin/colors";
+@import "./layout/sidebar";
+@import "./layout/topbar";
+@import "./layout/overrides";
+@import "./layout/customizer";
+@import "./layout/container";
+@import "./layout/horizontal";
+@import "./layout/minisidebar";
+@import "./layout/widget";
+@import "./layout/rtl";
+@import "./layout/dark";
+@import "./pages/tables";
+@import "./pages/authentication";
+
+.lightTheme {
+  .blueTheme {
+    @import "colors/blue";
+    @include angular-material-theme($blue-app-theme);
+  }
+  .greenTheme {
+    @import "colors/green";
+    @include angular-material-theme($green-app-theme);
+  }
+  .purpleTheme {
+    @import "colors/purple";
+    @include angular-material-theme($purple-app-theme);
+  }
+  .redTheme {
+    @import "colors/red";
+    @include angular-material-theme($red-app-theme);
+  }
+  .indigoTheme {
+    @import "colors/indigo";
+    @include angular-material-theme($indigo-app-theme);
+  }
+}
+.darkTheme {
+  .blueTheme {
+    @import "colors/blue";
+    @include angular-material-theme($blue-app-dark-theme);
+  }
+  .greenTheme {
+    @import "colors/green";
+    @include angular-material-theme($green-app-dark-theme);
+  }
+  .purpleTheme {
+    @import "colors/purple";
+    @include angular-material-theme($purple-app-dark-theme);
+  }
+  .redTheme {
+    @import "colors/red";
+    @include angular-material-theme($red-app-dark-theme);
+  }
+  .indigoTheme {
+    @import "colors/indigo";
+    @include angular-material-theme($indigo-app-dark-theme);
+  }
+}

@@ -1,0 +1,17 @@
+<div
+  [dir]="this.customizer.dir"
+  class="mainboxContainer"
+  [ngClass]="{
+    horizontal: this.customizer.horizontal,
+    minisidebar: this.customizer.minisidebar,
+    fixedTopbar: this.customizer.fixedTopbar,
+    blueTheme: this.customizer.currentTheme == 'blueTheme',
+    orangeTheme: this.customizer.currentTheme == 'orangeTheme',
+    greenTheme: this.customizer.currentTheme == 'greenTheme',
+    redTheme: this.customizer.currentTheme == 'redTheme',
+    purpleTheme: this.customizer.currentTheme == 'purpleTheme',
+    indigoTheme: this.customizer.currentTheme == 'indigoTheme'
+  }"
+>
+  <router-outlet></router-outlet>
+</div>

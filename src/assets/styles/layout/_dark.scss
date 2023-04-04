@@ -1,0 +1,110 @@
+.darkTheme {
+  $dark-bg1: #303030 !default;
+  $dark-bg2: #424242 !default;
+  $dark-border: rgba(255, 255, 255, 0.12) !default;
+  $dark-color: #adb0bb !default;
+
+  .bg-light-primary,
+  .cal-week-view .cal-starts-within-day .cal-event,
+  .cal-week-view .cal-time-events .cal-event {
+    background-color: #644035 !important;
+  }
+  .bg-light-accent,
+  .cal-week-view .cal-header.cal-today {
+    background-color: #046f76 !important;
+  }
+  .bg-light-inverse,
+  .cal-week-view .cal-ends-within-day .cal-event {
+    background-color: #504f4f !important;
+  }
+  .bg-white {
+    background-color: #424242 !important;
+  }
+  a.link,
+  a {
+    color: $white;
+    text-decoration: none;
+  }
+
+  .cal-month-view,
+  .cal-week-view,
+  .cal-month-view .cal-cell-row .cal-cell:hover,
+  .cal-month-view .cal-cell.cal-has-events.cal-open,
+  .cal-week-view
+    .cal-time-events
+    .cal-day-columns:not(.cal-resize-active)
+    .cal-hour-segment:hover,
+  .angular-editor-toolbar,
+  .ae-font .ae-picker-options,
+  .ngx-datatable.material:not(.cell-selection) .datatable-body-row:hover,
+  .ngx-datatable.material:not(.cell-selection)
+    .datatable-body-row:hover
+    .datatable-row-group {
+    background-color: $dark-bg1 !important;
+  }
+
+  .cal-month-view .cal-cell-row:hover,
+  .cal-week-view .cal-hour-odd,
+  .cal-week-view .cal-day-headers .cal-header:hover,
+  .cal-week-view .cal-day-headers .cal-drag-over,
+  .ae-font .ae-picker-label,
+  .angular-editor-toolbar .angular-editor-toolbar-set .angular-editor-button,
+  .activity .activity-status::before,
+  .activity .activity-status .status,
+  .ngx-datatable.material,
+  .ngx-datatable.material .datatable-header .datatable-header-cell {
+    background-color: $dark-bg2 !important;
+  }
+
+  .cal-month-view .cal-day-cell:not(:last-child),
+  .cal-month-view .cal-days .cal-cell-row,
+  .cal-month-view .cal-days,
+  .cal-week-view .cal-day-headers,
+  .cal-week-view .cal-hour:not(:last-child) .cal-hour-segment,
+  .cal-week-view .cal-hour:last-child :not(:last-child) .cal-hour-segment,
+  .cal-week-view .cal-day-headers .cal-header:not(:last-child),
+  .cal-week-view .cal-time-events,
+  .cal-week-view .cal-day-column,
+  .angular-editor-toolbar,
+  .angular-editor-toolbar .angular-editor-toolbar-set .angular-editor-button,
+  .angular-editor .angular-editor-wrapper .angular-editor-textarea,
+  .ae-font .ae-picker-label,
+  .ae-font.ae-expanded .ae-picker-options,
+  .mat-table-sticky:first-child,
+  .mat-table-sticky:last-child,
+  .mat-table-sticky,
+  .ngx-datatable.material,
+  .ngx-datatable.material .datatable-header .resize-handle,
+  .ngx-datatable.material .datatable-header {
+    border-color: $dark-border !important;
+  }
+
+  .notes-item.selected {
+    background-color: #504f4f !important;
+  }
+
+  .text-muted,
+  .angular-editor-toolbar .angular-editor-toolbar-set .angular-editor-button,
+  .ae-font .ae-picker-label,
+  .ae-font .ae-picker-options,
+  .ae-font .ae-picker-options .ae-picker-item.selected,
+  .ae-font .ae-picker-options .ae-picker-item,
+  .ngx-datatable.material
+    .datatable-body
+    .datatable-body-row
+    .datatable-body-cell,
+  .ngx-datatable.material .datatable-header .datatable-header-cell,
+  .ngx-datatable.material .datatable-footer .datatable-pager a,
+  .ngx-datatable.material .datatable-footer{
+    color: $dark-color !important;
+  }
+
+  .ae-font .ae-picker-label svg .ae-stroke {
+    stroke: $dark-color !important;
+  }
+
+  .ae-font .ae-picker-label:before,
+  .ae-font .ae-picker-label:hover:before {
+    background: linear-gradient(to right, $dark-bg1, $dark-bg1 100%);
+  }
+}

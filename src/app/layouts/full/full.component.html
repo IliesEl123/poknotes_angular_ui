@@ -1,0 +1,90 @@
+<!-- ============================================================== -->
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<div class="main-container" [ngClass]="{}">
+  <mat-sidenav-container>
+    <!-- ============================================================== -->
+    <!-- Sidebar - style you can find in sidebar.scss -->
+    <!-- ============================================================== -->
+
+    <mat-sidenav
+      [opened]="mobileQuery.matches"
+      #sidebar
+      [mode]="mobileQuery.matches ? 'side' : 'over'"
+      class="leftsidebar"
+    >
+      <app-vertical-sidebar></app-vertical-sidebar>
+    </mat-sidenav>
+
+    <!-- ============================================================== -->
+    <!-- Customizer - style you can find in customizer.scss -->
+    <!-- ============================================================== -->
+    <mat-sidenav
+      opened="false"
+      #rightsidebar
+      position="end"
+      mode="over"
+      class="customizerSidebar"
+    >
+      <app-customizer></app-customizer>
+    </mat-sidenav>
+
+    <!-- ============================================================== -->
+    <!-- Cart sidebar -->
+    <!-- ============================================================== -->
+
+    <!-- ============================================================== -->
+    <!-- Page Container - style you can find in container.scss -->
+    <!-- ============================================================== -->
+    <mat-sidenav-content class="page-wrapper">
+      <!-- ============================================================== -->
+      <!-- Topbar - style you can find in topbar.scss -->
+      <!-- ============================================================== -->
+      <div class="topbar" *ngIf="!this.customizer.horizontal; else horizontalheader">
+        <mat-toolbar >
+          <app-vertical-header
+            class="w-100"
+            [sidebartoggle]="sidebar"
+          ></app-vertical-header>
+        </mat-toolbar>
+      </div>
+      <!-- ============================================================== -->
+      <!-- Topbar Horizontal - style you can find in topbar.scss -->
+      <!-- ============================================================== -->
+      <ng-template #horizontalheader>
+        <div class="topbar">
+        <mat-toolbar >
+          <app-horizontal-header
+            [sidebartoggle]="sidebar"
+            class="w-100 horizontal-container align-items-center"
+          ></app-horizontal-header>
+        </mat-toolbar>
+      </div>
+      </ng-template>
+
+      <!-- ============================================================== -->
+      <!-- Right sidebar toggle - style you can find in customizer -->
+      <!-- ============================================================== -->
+      <button
+        (click)="rightsidebar.toggle()"
+        mat-fab
+        color="primary"
+        class="customizerbtn"
+      >
+        <mat-icon>settings</mat-icon>
+      </button>
+      <!-- ============================================================== -->
+      <!-- page content - style you can find in container.scss -->
+      <!-- ============================================================== -->
+      <div class="page-content">
+        <!-- ============================================================== -->
+        <!-- Horizontal sidebar - style you can find in sidebar.scss -->
+        <!-- ============================================================== -->
+        <app-horizontal-sidebar
+          *ngIf="this.customizer.horizontal && mobileQuery.matches"
+        ></app-horizontal-sidebar>
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

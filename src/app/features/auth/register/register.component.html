@@ -1,0 +1,117 @@
+<!-- Le wrapper global de la page -->
+<div fxLayout="row wrap" class="auth-wrapper">
+    <!-- La partie gauche de la page, affichant le logo et l'image de fond -->
+  <div fxFlex="100" fxFlex.gt-md="50%" class="bg-white">
+    <div class="position-relative">
+      <div class="text-center auth-brand p-30">
+            <!-- Affichage du logo en fonction du thème actuel -->
+        <a routerLink="/" *ngIf="!this.customizer.dark" style="display: flex;">
+          <img src="assets/images/logos/logo-pk.png" alt="logo" width="50" height="38" style="margin-top: 15px;"/>
+          <h2>PokNotes</h2>
+        </a>
+        <a routerLink="/" *ngIf="this.customizer.dark" style="display: flex;">
+          <img src="assets/images/logos/logo-pk.png" alt="logo" width="50" height="38" style="margin-top: 15px;"/>
+          <h2>PokNotes</h2>
+        </a>
+      </div>
+      <div class="left-bg-img">
+            <!-- Image de fond -->
+        <img src="assets/images/backgrounds/login-bg.svg" style="width: 100%; max-width: 812px" />
+      </div>
+    </div>
+  </div>
+  <div fxFlex="100" fxFlex.gt-md="50%" class="d-flex align-items-center">
+    <div fxLayout="row wrap" class="right-bg-content">
+        <!-- La partie droite de la page, affichant le formulaire d'inscription -->
+      <div fxFlex="100" fxFlex.sm="70%" fxFlex.gt-md="70%" fxFlex.gt-lg="50%">
+        <div class="p-30" *ngIf="!isSuccessful" >
+          <h2 class="fw-bold m-b-5">Bienvenue sur PokNotes</h2>
+               <!-- Bouton de connexion si l'utilisateur a déjà un compte -->
+          <div class="d-flex align-items-center gap-1">
+            <span class="text-muted mat-subheading-2 fw-normal">Vous avez déjà un compte?</span>
+            <a routerLink="/auth/login" class="text-accent mat-subheading-2 fw-medium">Me connecter</a>
+          </div>
+                <!-- Formulaire d'inscription -->
+          <form class="m-t-30" *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm"
+            novalidate>
+              <!-- Champ de saisie pour le pseudo -->
+            <mat-form-field appearance="outline" class="form-group">
+              <mat-label for="username">Pseudo</mat-label>
+              <input type="text" class="form-control" name="username" [(ngModel)]="form.username" required minlength="3"
+                maxlength="20" #username="ngModel" matInput placeholder="Choisissez un pseudo" />
+                <div class="alert-danger" *ngIf="username.errors && f.submitted">
+                  <div *ngIf="username.errors['required']"></div>
+                  <div *ngIf="username.errors['minlength']">
+                    Le pseudo doit comporter au moins 3 caractères!
+                  </div>
+                  <div *ngIf="username.errors['maxlength']">
+                    Le pseudo ne doit pas excéder 20 caractères!
+                  </div>
+                </div>
+            </mat-form-field>
+
+        <!-- Champ de saisie pour l'adresse -->
+            <mat-form-field appearance="outline" class="form-group">
+              <mat-label for="email">Adresse email</mat-label>
+              <input matInput type="email"
+              class="form-control"
+              name="email"
+              [(ngModel)]="form.email"
+              required
+              email
+              #email="ngModel" placeholder="Entrez votre adresse mail" />
+              <div class="alert-danger" *ngIf="email.errors && f.submitted">
+                <div *ngIf="email.errors['required']"></div>
+                <div *ngIf="email.errors['email']">
+                  L'adresse email n'est pas valide
+                </div>
+              </div>
+            </mat-form-field>
+
+        <!-- Champ de saisie pour le mot de passe -->
+            <mat-form-field class="form-group" appearance="outline">
+              <mat-label for="password">Mot de passe</mat-label>
+              <input matInput type="password"
+              class="form-control"
+              name="password"
+              [(ngModel)]="form.password"
+              required
+              minlength="6"
+              #password="ngModel" 
+              placeholder="Choisissez un mot de passe" />
+              <div class="alert-danger" *ngIf="password.errors && f.submitted">
+                <div *ngIf="password.errors['required']"></div>
+                <div *ngIf="password.errors['minlength']">
+                  Votre mot de passe doit comporter au moins 6 caractères
+                </div>
+              </div>
+            </mat-form-field>
+
+            <div class="form-group">
+            <button mat-flat-button color="primary" class="w-100">
+              M'inscrire
+            </button>
+            </div>
+            <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+              Votre inscription a échouée!<br />{{ errorMessage }}
+            </div>
+          </form>
+
+          
+            <div class="alert alert-success" *ngIf="isSuccessful">
+              Félicitations! Vous êtes inscrit!
+            </div>
+
+
+
+            <button mat-stroked-button [disabled]="isDisabled" color="primary" class="w-100 m-t-15">
+            </button>
+          
+        </div>
+        <div class="alert alert-success" *ngIf="isSuccessful">
+          Félicitations! Vous êtes inscrit!
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,58 @@
+<h2 class="p-15 mat-title m-b-0">Paramètres</h2>
+<mat-divider></mat-divider>
+<mat-nav-list>
+  <!-- ============================================================== -->
+  <!-- Changement de couleur -->
+  <!-- ============================================================== -->
+  <h4 class="p-15 m-b-0">Couleurs</h4>
+  <ul class="themeColorOption">
+    <li *ngFor="let colors of colorOptions" class="{{ colors.value }}">
+      <a (click)="setTheme(colors.value)">
+        <span
+          *ngIf="colors.value == this.customizer.currentTheme; else notactive"
+        >
+          <i-feather name="disc"></i-feather>
+        </span>
+        <ng-template #notactive>
+          <i-feather name="circle"></i-feather>
+        </ng-template>
+      </a>
+    </li>
+  </ul>
+  <!-- ============================================================== -->
+  <!-- Changement de mode sombre -->
+  <!-- ============================================================== -->
+  <h4 class="p-15 m-b-0">Options</h4>
+  <mat-list-item>
+    <mat-checkbox
+      color="primary"
+      [(ngModel)]="this.customizer.dark"
+      (click)="toggleDark()"
+    >
+      Mode sombre
+    </mat-checkbox>
+  </mat-list-item>
+  <mat-list-item>
+    <mat-checkbox color="primary" [(ngModel)]="this.customizer.horizontal">
+      Barre de navigation horizontale
+    </mat-checkbox>
+  </mat-list-item>
+  <mat-list-item>
+    <mat-checkbox color="primary" [(ngModel)]="this.customizer.fixedTopbar">
+      Barre de navigation en haut
+    </mat-checkbox>
+  </mat-list-item>
+  <!-- ============================================================== -->
+  <!-- Changement de direction RTL -->
+  <!-- ============================================================== -->
+  <h4 class="p-15 m-b-0">Direction</h4>
+  <mat-list-item>
+    <mat-slide-toggle
+      color="primary"
+      (change)="
+        this.customizer.dir = this.customizer.dir == 'rtl' ? 'ltr' : 'rtl'
+      "
+      >RTL
+    </mat-slide-toggle>
+  </mat-list-item>
+</mat-nav-list>

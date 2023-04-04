@@ -1,0 +1,45 @@
+<div fxLayout="row wrap" class="auth-wrapper">
+  <div fxFlex="100" fxFlex.gt-md="50%" class="bg-white">
+    <div class="position-relative">
+      <div class="text-center auth-brand p-30">
+        <a routerLink="/" *ngIf="!this.customizer.dark">
+          <img src="assets/images/logos/logo-dark.svg" alt="logo" />
+        </a>
+        <a routerLink="/" *ngIf="this.customizer.dark">
+          <img src="assets/images/logos/logo-white.svg" alt="logo" />
+        </a>
+      </div>
+      <div class="left-bg-img">
+        <img src="assets/images/backgrounds/login-bg.svg" style="width: 100%; max-width: 812px" />
+      </div>
+    </div>
+  </div>
+  <div fxFlex="100" fxFlex.gt-md="50%" class="d-flex align-items-center">
+    <div fxLayout="row wrap" class="right-bg-content">
+      <div fxFlex="100" fxFlex.sm="70%" fxFlex.gt-md="70%" fxFlex.gt-lg="50%">
+        <div class="p-30">
+          <h2 class="fw-bold m-b-5">Forgot your password?</h2>
+          <div class="d-flex align-items-center gap-1">
+            <span class="text-muted mat-subheading-2 fw-normal lh-md">Please enter the email address associated with
+              your account and
+              We will email you a link to reset your password.</span>
+          </div>
+          <form class="m-t-30">
+            <mat-form-field appearance="outline">
+              <mat-label>Email Address</mat-label>
+              <input matInput placeholder="Enter email address" />
+            </mat-form-field>
+            <button mat-flat-button color="primary" class="w-100">
+              Reset Password
+            </button>
+            <a routerLink="/authentication/login">
+              <button mat-button color="primary" class="w-100 m-t-15">
+                Back to Login
+              </button>
+            </a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,82 @@
+.main-container {
+  .mat-card {
+    border-radius: $card-radius;
+    box-shadow: $card-shadow !important;
+    padding: 0;
+    margin: 15px;
+    overflow: hidden;
+    .mat-card-content {
+      padding: 30px;
+    }
+    .mat-card-title {
+      font-size: 21px;
+    }
+  }
+  
+
+  // chips
+  .mat-chip.mat-standard-chip {
+    min-height: 24px;
+    font-size: 0.75rem;
+    border-radius: 6px;
+  }
+  // mini fab
+  .mat-mini-fab {
+    width: 40px;
+    height: 40px;
+    box-shadow: unset;
+  }
+
+  .mat-fab {
+    width: 48px;
+    height: 48px;
+    box-shadow: unset;
+    .mat-button-wrapper {
+      padding: 11px 0;
+    }
+  }
+
+  // table
+  .mat-header-cell {
+    font-size: 15px;
+    color: inherit;
+  }
+  th.mat-header-cell,
+  td.mat-cell,
+  td.mat-footer-cell {
+    padding: 16px;
+  }
+
+  // progress
+  .mat-progress-bar {
+    border-radius: 3px;
+  }
+}
+
+.mat-form-field-label {
+  font-weight: 500 !important;
+}
+
+.mat-checkbox-label {
+  font-size: 15px;
+}
+
+.mat-elevation-z4 {
+  box-shadow: $box-shadow;
+}
+.mat-form-field {
+  width: 100%;
+}
+
+.theme-select {
+  width: 120px;
+  .mat-form-field-infix {
+    padding: 6px 0 1px !important;
+  }
+  &.mat-form-field-appearance-outline .mat-select-arrow-wrapper {
+    transform: translateY(-4%) !important;
+  }
+  &.mat-form-field-appearance-outline .mat-form-field-outline {
+    height: 41px;
+  }
+}
